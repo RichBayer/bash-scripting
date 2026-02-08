@@ -4,9 +4,15 @@
 
 # Exercise #2
 # Make sure the script is being executed with superuser privileges.
-# To ensure the script is being executed only with superuser privileges, I changed the file ownership to root and only gave root the execute permission.
+# NOTE:
+# During development, file ownership and permissions may be relaxed to allow
+# editing as a non-root user (e.g., when using VS Code Remote-SSH).
+# Before deployment, this script should be owned by root and set to mode 755.
 
-# -rwxrw-r--. 1 root richb 1267 Jan 20 19:30 add-local-user.sh
+if [[ "${EUID}" -ne 0 ]]; then
+  echo "Please run with sudo or as root."
+  exit 1
+fi
 
 # Get the username (login).
 read -p "Enter Your Username: " USER_NAME
