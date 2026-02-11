@@ -36,7 +36,7 @@ exit 1
 fi
 
 # Set the password.
-passwd "${PASSWORD}" "${USER_NAME}"
+echo "${USER_NAME}:${PASSWORD}" | chpasswd
 
 # Check to see if the passwd command succeeded.
 if [[ $? -gt 0 ]]
