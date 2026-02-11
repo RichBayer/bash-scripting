@@ -24,15 +24,11 @@ read -p "Enter Your Real Name: " REAL_NAME
 read -p "Enter Your Password: " PASSWORD
 
 # Create the user with the password.
-useradd -m "${USER_NAME}" -c "${REAL_NAME}"
-# I initially had this command here: useradd -m "${USER_NAME}" -c "${REAL_NAME}" | passwd "${PASSWORD}" "${USER_NAME}"
-# But then I saw below that the exercise wanted me to set the password then check if the passwd command executed so I separated the commands.
+useradd -m -c "${REAL_NAME}" "${USER_NAME}"
 
-# Check to see if the useradd command succeeded.
-if [[ $? -gt 0 ]]
-    then echo "Account Could Not be Created"
-    else echo "Account Created Successfully"
-exit 1
+if [[ $? -ne 0 ]]; then
+  echo "Account could not be created."
+  exit 1
 fi
 
 # Set the password.
