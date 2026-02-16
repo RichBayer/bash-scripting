@@ -1,6 +1,9 @@
 #!/bin/bash
-# The purpose of this script is to add users to the same Linux system as the script is executed on.
-# This is my first attempt at writing this script without referencing the lesson material or doing any sort of internet search.
+# add-local-user.sh
+# Creates a local user account on the system where it is executed.
+# Prompts for username, real name, and password.
+# Forces password change on first login.
+# Must be executed with root privileges.
 
 # Exercise #2
 # Make sure the script is being executed with superuser privileges.
