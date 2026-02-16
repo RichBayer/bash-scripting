@@ -36,10 +36,12 @@ fi
 echo "${USER_NAME}:${PASSWORD}" | chpasswd
 
 # Check to see if the passwd command succeeded.
-if [[ $? -gt 0 ]]
-    then echo "Password Not Set"
-    else echo "Password Set Successfully"
-exit 1
+
+echo "${USER_NAME}:${PASSWORD}" | chpasswd
+
+if [[ $? -ne 0 ]]; then
+  echo "Password was not set."
+  exit 1
 fi
 
 # Force password change on first login.
