@@ -50,4 +50,4 @@ passwd -e "${USER_NAME}"
 # Display the username, password, and the host where the user was created.
 echo "${USER_NAME}"
 echo "${PASSWORD}"
-echo hostname
+hostname
