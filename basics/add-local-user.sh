@@ -36,9 +36,6 @@ fi
 echo "${USER_NAME}:${PASSWORD}" | chpasswd
 
 # Check to see if the passwd command succeeded.
-
-echo "${USER_NAME}:${PASSWORD}" | chpasswd
-
 if [[ $? -ne 0 ]]; then
   echo "Password was not set."
   exit 1
@@ -48,6 +45,13 @@ fi
 passwd -e "${USER_NAME}"
 
 # Display the username, password, and the host where the user was created.
+echo
+echo "username:"
 echo "${USER_NAME}"
+echo
+echo "password:"
 echo "${PASSWORD}"
+echo
+echo "host:"
 hostname
+
