@@ -21,7 +21,8 @@ read -p "Enter Your Username: " USER_NAME
 read -p "Enter Your Real Name: " REAL_NAME
 
 # Get the password.
-read -p "Enter Your Password: " PASSWORD
+read -s -p "Enter Your Password: " PASSWORD
+echo
 
 # Create the user with the password.
 useradd -m -c "${REAL_NAME}" "${USER_NAME}"
