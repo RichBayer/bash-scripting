@@ -5,9 +5,8 @@
 # Exercise #2
 # Make sure the script is being executed with superuser privileges.
 # NOTE:
-# During development, file ownership and permissions may be relaxed to allow
-# editing as a non-root user (e.g., when using VS Code Remote-SSH).
-# Before deployment, this script should be owned by root and set to mode 755.
+# During development, ownership and permissions may be relaxed.
+# For deployment, this script should be owned by root:root and set to mode 755.
 
 if [[ "${EUID}" -ne 0 ]]; then
   echo "Please run with sudo or as root."
