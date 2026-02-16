@@ -45,7 +45,9 @@ if [[ $? -ne 0 ]]; then
 fi
 
 # Force password change on first login.
-passwd -e "{$USER_NAME}"
+passwd -e "${USER_NAME}"
 
 # Display the username, password, and the host where the user was created.
-echo "{$USER_NAME}" ; echo "{$PASSWORD}" ; echo hostname 
+echo "${USER_NAME}"
+echo "${PASSWORD}"
+echo hostname
