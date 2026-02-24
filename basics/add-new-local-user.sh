@@ -7,17 +7,22 @@ if [[ "${EUID}" -ne 0 ]]; then
   exit 1
 fi
 
-# Use the first arguement on the command line as the username.
-USER_NAME=${1}
-
 # Provide a usage statement if user does not supply an account name on the command line.
-if [[ ${?} -ne 0 ]]; then
-  echo "No account name added as argument on the command line, please include account name to create a new account"
+if [[ $# -lt 1 ]]; then
+  echo "Usage: $0 USER_NAME [COMMENT]..."
+  echo
+  echo "Create a local user account with the specified username and optional comment."
   exit 1
 fi
 
-# Use remaining arguements as the comment for the account.
-REAL_NAME=${1,2,3}
+# Use the first argument on the command line as the username.
+USER_NAME="$1"
+
+# Shift off the username.
+shift
+
+# Use remaining arguments as the comment for the account.
+REAL_NAME="$*"
 
 # Automatically generate a password for the account.
 PASSWORD=$(date +%s%N${RANDOM}${RANDOM} | sha256sum | head -c12)
