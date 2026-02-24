@@ -25,7 +25,7 @@ shift
 REAL_NAME="$*"
 
 # Automatically generate a password for the account.
-PASSWORD=$(date +%s%N${RANDOM}${RANDOM} | sha256sum | head -c12)
+PASSWORD=$(head -c16 /dev/urandom | sha256sum | head -c 32)
 
 # Create the user with the password.
 useradd -m -c "${REAL_NAME}" "${USER_NAME}"
