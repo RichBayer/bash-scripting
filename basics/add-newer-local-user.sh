@@ -29,7 +29,7 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-echo "${USER_NAME}":"{$REAL_NAME}" | chpasswd
+echo "${USER_NAME}":"{$PASSWORD}" | chpasswd &> /dev/null
 
 passwd -e "${USER_NAME}"
 
