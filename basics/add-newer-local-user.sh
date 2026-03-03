@@ -3,13 +3,13 @@
 # This attempt I tried to rewrite the entire script from scratch, no copy and paste.
 
 if [[ $EUID -ne 0 ]]; then
-    echo "Please execute script as root or use sudu" >&2
+    echo "Please execute script as root or use sudo" >&2
     exit 1
 fi
 
 if [[ $# -lt 1 ]]; then
     echo "Usage: $0 USER_NAME [COMMENT]..." >&2
-    echo
+    echo >&2
     echo "To create a new user account, provide a username and optional comment." >&2
     exit 1
 fi
