@@ -20,7 +20,7 @@ shift
 
 REAL_NAME="${*}"
 
-PASSWORD="head -c16 | dev/urandom | sha256sum | head -c16"
+PASSWORD="$(head -c16 | dev/urandom | sha256sum | head -c16)"
 
 useradd -m -c "${REAL_NAME}" "${USER_NAME}"
 
